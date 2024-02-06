@@ -250,7 +250,6 @@ void initialize_ghost (Map* map) //initialize and creat _ghost-x[] and ghost_y[]
 }  
 void creat_Map (Map *map ,char filename[20] , int flag) // read file, creat map and initialize  it //flag 1 = first map 0 = changed map
 {
-    //static int food_temp; //Initial value
     FILE *fp = fopen(filename,"r+");
     map->ghost.num_G = 0 ,  map->num_food = 0 , map->pac.pacman_x = 0, map->pac.pacman_y = 0 ;//, map->score = 0;
     if (fp==NULL)
@@ -281,24 +280,8 @@ void creat_Map (Map *map ,char filename[20] , int flag) // read file, creat map 
                 map->num_food++;
             }
         }
-        fgetc(fp);
+        fgetc(fp); //get new line 
     }
-    /*if(flag ==1)
-    {
-        food_temp = map->num_food;
-    }
-    if(flag==1)
-    {
-        fclose(fp);
-        initialize_ghost(map);
-        return;
-    }
-    map->score = food_temp - map->num_food;
-    fscanf(fp,"%d",map->score);
-    fclose(fp);
-    initialize_ghost(map);
-    return;
-    */
    if(flag == 1)
    {
     map->score = 0;
@@ -502,14 +485,6 @@ void game(link *curr , char filename[30] , int temp)
     strcpy(map.name,curr->data.name);
     creat_Map(&map , filename , temp);
     draw_map(&map);
-    /*while (exit_flag && flag == 2 && flag_g == 2) 
-    {
-        exit_flag = input(&map);
-        flag = move_pacman(&map);
-        flag_g = move_ghost(&map);
-        printf(clear);
-        draw_map(&map);
-    }*/
     while (exit_flag && flag == 2 && flag_g == 2) 
     { 
         while(kbhit()==0)
