@@ -574,9 +574,11 @@ void Menu()
     tab(4);
     printf(BLUE"3.Hard level\n\n");
     tab(4);
-    printf(WHITE"4.Review account information\n\n"); 
+    printf(BOLD_YELLOW"4-very Hard\n\n");
     tab(4);
-    printf(MAGENTA"5.Play last game\n\n");
+    printf(WHITE"5.Review account information\n\n"); 
+    tab(4);
+    printf(MAGENTA"6.Play last game\n\n");
     tab(4);
     printf(CYAN"0.Log out\n"RESET);
     tab(4);
@@ -597,7 +599,6 @@ void game_menu(link * curr)
     {
         case 1: //easy level
             flag = 1;
-            //strcpy(filename , "mapC.txt");
             strcpy(filename,"mapC2.txt");
             game(curr, filename , flag);
             sleep(1);
@@ -605,7 +606,6 @@ void game_menu(link * curr)
             break;  
         case 2: //Medium level
             flag = 1;
-            //strcpy(filename , "r.txt");
             strcpy(filename,"ne.txt");
             game(curr, filename , flag);
             sleep(1);
@@ -618,12 +618,19 @@ void game_menu(link * curr)
             sleep(2);
             printf(clear);
             break;
-        case 4: //show review
+        case  4://very hard level
+            flag = 1;
+            strcpy(filename,"newmap.txt");
+            game(curr, filename , flag);
+            sleep(1);
+            printf(clear);
+            break;
+        case 5: //show review
             show(*curr);
             sleep(3);
             printf(clear);
             break;
-        case 5: //play last game
+        case 6: //play last game
             flag = 0;
             if(strcmp(curr->data.state , "active")==0)
             {
