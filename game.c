@@ -2,7 +2,7 @@
 #include "game.h"
 void welcome()
 {
-    for(int i=0 ; i<30;++i)
+    for(int i=0 ; i<20;++i)
     {
         tab(4);
         printf(ghost2 MAGENTA" welcome "controller GREEN" to "pacman2 RED" pacman "controller BLUE" game "ghost2"\n");
@@ -574,7 +574,7 @@ void Menu()
     tab(4);
     printf(BLUE"3.Hard level\n\n");
     tab(4);
-    printf(BOLD_YELLOW"4-very Hard\n\n");
+    printf(BOLD_YELLOW"4.very Hard\n\n");
     tab(4);
     printf(WHITE"5.Review account information\n\n"); 
     tab(4);
@@ -615,7 +615,7 @@ void game_menu(link * curr)
             flag = 1;//
             strcpy(filename,"neg.txt");
             game(curr, filename ,flag);
-            sleep(2);
+            sleep(1);
             printf(clear);
             break;
         case  4://very hard level
