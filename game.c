@@ -305,15 +305,15 @@ void draw_map (Map *map) //show_map name score...
             switch(map->mat[i][j])
             {
                 case V_W :
-                    printf(BLUE "%c"RESET , map->mat[i][j]);
-                    printf(BLUE "%c"RESET , map->mat[i][j]);
+                    printf(CYAN "%c"RESET , map->mat[i][j]);
+                    printf(CYAN "%c"RESET , map->mat[i][j]);
                     break;
                 case H_W :
-                    printf(BLUE "%c"RESET , map->mat[i][j]);
-                    printf(BLUE "%c"RESET , map->mat[i][j]);
+                    printf(CYAN "%c"RESET , map->mat[i][j]);
+                    printf(CYAN "%c"RESET , map->mat[i][j]);
                     break;
                 case E :
-                    printf(YELLOW "%c"RESET , map->mat[i][j]);
+                    printf(YELLOW"%c"RESET , map->mat[i][j]);
                     printf(YELLOW"%c"RESET , map->mat[i][j]);
                     break;
                 case P:
@@ -329,9 +329,9 @@ void draw_map (Map *map) //show_map name score...
         }
         printf("\n");
     }
-    printf(MAGENTA " food: %d\n"RESET,map->num_food);
+    printf(MAGENTA" food: %d\n"RESET,map->num_food);
     printf(MAGENTA " score: %d\n" RESET,map->score);
-    printf(MAGENTA " name : %s\n\n"RESET,map->name);
+    printf(MAGENTA" name : %s\n\n"RESET,map->name);
     
 }
 int input(Map *map) //return 0 for finish or 1 for continue 
@@ -647,8 +647,8 @@ void game_menu(link * curr)
         default:
             break;  
     }
-    sleep(1);
-    printf(clear);
+    //sleep(1);
+    //printf(clear);
     Menu();
     printf("\n");
     tab(5);
