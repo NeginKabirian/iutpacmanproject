@@ -24,7 +24,7 @@
 #define BOLD_MAGENTA "\033[1;35m"
 #define BOLD_CYAN "\033[1;36m"
 #define BOLD_WHITE "\033[1;37m"
-#define clear  "\e[1;1H\e[2J"// "\e[2J\e[H"//"\e[1;1H\e[2J"//"\033[2J\033[0;0H"   //"\033[2J\033[0;0H" //"clear" //"\e[1;1H\e[2J" //"\e[2J\e[0;0H"//"\033[2J\033[0;0H" // "\033[2J\033[1;1H", end='' //"\e[2J\e[H"//"\e[1;1H\e[2J"// "\033[2J\033[H" //'\033c' //"\033\033[1;1H"
+#define clear  "\e[1;1H\e[2J"
 #define happy "\U0001F389"
 #define ghost2 "\U0001F47B"
 #define pacman2 "\U0001F600"

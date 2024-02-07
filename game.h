@@ -23,7 +23,7 @@
 #define BOLD_MAGENTA "\033[1;35m"
 #define BOLD_CYAN "\033[1;36m"
 #define BOLD_WHITE "\033[1;37m"
-#define clear  "\e[1;1H\e[2J"// "\e[2J\e[H"//"\e[1;1H\e[2J"//"\033[2J\033[0;0H"   //"\033[2J\033[0;0H" //"clear" //"\e[1;1H\e[2J" //"\e[2J\e[0;0H"//"\033[2J\033[0;0H" // "\033[2J\033[1;1H", end='' //"\e[2J\e[H"//"\e[1;1H\e[2J"// "\033[2J\033[H" //'\033c' //"\033\033[1;1H"
+#define clear  "\e[1;1H\e[2J"
 #define happy "\U0001F389"
 #define ghost2 "\U0001F47B"
 #define pacman2 "\U0001F600"
@@ -95,13 +95,14 @@ void creat_Map (Map *map ,char filename[20] , int flag);//input(pointer to struc
 
 void draw_map (Map *map);//input:(pointer to struct map) //print matrix, name ,score, num of food...
 
-int input(Map *map); //input:(pointer to struct map)//return 0 for finish or 1 for continue 
+int input(Map *map); //input:(pointer to struct map)// Getting input from the user(w a s d q)//return 0 for finish or 1 for continue 
+
 void store_game(Map *map ,char filename [9]);//input(pointer to struct map) (filename)//ralated to file(game)
 //save last game in text file
 
 int move_pacman(Map *map); //input(pointer to struct map)  //pacman_move //return flag=win?lose    win=1 : lose=0  in progress=2
 
-int move_ghost (Map *map); //input(pointer to struct map) //return (flag  0 : lose )(flag  2 : active)
+int move_ghost (Map *map); //input(pointer to struct map) //move_ghost //return (flag  0 : lose )(flag  2 : active)
 
 void game(link *curr , char filename[30] , int temp);  //input :(struct link)(filename(map))(temp)
  //temp (1 : play first time (0: play last game)(for initilize food and score)(Creat_map function input)
@@ -110,7 +111,7 @@ void Menu(); //guide related to game
 void game_menu(link * curr);//input:(struct link) //Menu for game level and log out and show information and play last game
 
 //function related to account
-void creat_acount(link** phead , int count); //input(pointer to pointer phead)(count) //count:start from 127 (for filename(unique))
+void creat_acount(link** phead , int count); //input(pointer to pointer phead)(count) //count:start from 128 (for filename(unique))
 //creat and initialize and check id (unique)(8 char)and possible to test again
 
 void sort(link *phead); //input:(pointer to phead) //sort linked list
@@ -132,4 +133,4 @@ link* read_file(); //read file info.bin and craat linked list //return phead
 //function related to free memory
 void release(link* phead ); //input : phead of linked list //free memory (linked list)
 
-void release_map(Map* map); //input : struct Map //free memory(matrix and ghost_x[] and ghost_y)
+void release_map(Map* map); //input : struct Map //free memory(matrix and ghost_x[] and ghost_y[])

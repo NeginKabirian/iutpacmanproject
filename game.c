@@ -213,7 +213,8 @@ void delete_account(link ** phead) //delete node
 
     }
     printf(clear);
-    } 
+    }
+    printf(clear);
 }
 void show (link curr)
 {  
@@ -251,7 +252,7 @@ void initialize_ghost (Map* map) //initialize and creat _ghost-x[] and ghost_y[]
 void creat_Map (Map *map ,char filename[20] , int flag) // read file, creat map and initialize  it //flag 1 = first map 0 = changed map
 {
     FILE *fp = fopen(filename,"r+");
-    map->ghost.num_G = 0 ,  map->num_food = 0 , map->pac.pacman_x = 0, map->pac.pacman_y = 0 ;//, map->score = 0;
+    map->ghost.num_G = 0 ,  map->num_food = 0 , map->pac.pacman_x = 0, map->pac.pacman_y = 0 ;
     if (fp==NULL)
     {
         printf(RED"Unable to opening the file\n"RESET);
@@ -601,34 +602,25 @@ void game_menu(link * curr)
             flag = 1;
             strcpy(filename,"mapC2.txt");
             game(curr, filename , flag);
-            sleep(1);
-            printf(clear);
             break;  
         case 2: //Medium level
             flag = 1;
             strcpy(filename,"ne.txt");
             game(curr, filename , flag);
-            sleep(1);
-            printf(clear);
             break;
         case 3://hard level
             flag = 1;//
             strcpy(filename,"neg.txt");
             game(curr, filename ,flag);
-            sleep(1);
-            printf(clear);
             break;
         case  4://very hard level
             flag = 1;
             strcpy(filename,"newmap.txt");
             game(curr, filename , flag);
-            sleep(1);
-            printf(clear);
             break;
         case 5: //show review
             show(*curr);
             sleep(3);
-            printf(clear);
             break;
         case 6: //play last game
             flag = 0;
@@ -639,20 +631,12 @@ void game_menu(link * curr)
             }
             else
                 printf(RED"\n\n\n\n\n\t\tsorry! your last game must be active"RESET);
-            sleep(1);
-            printf(clear);
             break;
         case 0://logout
             return;
         default:
             break;  
     }
-    //sleep(1);
-    //printf(clear);
-    Menu();
-    printf("\n");
-    tab(5);
-    printf(BOLD_RED"CLICK:"BOLD_BLACK);
     sleep(1);
     printf(clear);
     }
@@ -666,9 +650,9 @@ void login(link *phead) //log in game
     while(flag)
     {
     printf(BOLD_GREEN"\n\t\t LOG in"RESET);
-    printf(BLUE"\n\n\n\t\t\t\t\tname:"BOLD_BLACK);
+    printf(CYAN"\n\n\n\t\t\t\t\tname:"BOLD_BLACK);
     scanf(" %s",name);
-    printf(BLUE"\n\t\t\t\t\tID(8 char):"BOLD_BLACK);
+    printf(CYAN"\n\t\t\t\t\tID(8 char):"BOLD_BLACK);
     scanf(" %s",ID);
     while(strlen(ID)!=8)
     {
@@ -738,7 +722,7 @@ void help()
     printf(BLUE"3. Delete Account: Delete an existing account\n");
     printf("\n");
     tab(4);
-    printf(WHITE"4. Review: Review account information\n"); 
+    printf(WHITE"4. Review: Display information in order of level\n"); 
     printf("\n");
     tab(4);
     printf(MAGENTA"0. Exit: Exit the program\n"RESET);
